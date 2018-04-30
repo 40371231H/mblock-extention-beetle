@@ -1,7 +1,7 @@
 {	
 	"extensionName": "Beetle with L293D and HC-06",
 	"description": "An Extension for NTNU TAHRD L293D Bluetooth Project",
-	"version": "0.1",
+	"version": "0.5",
 	"author": "ChengYenYU(40371231h@gapps.ntnu.edu.tw)",
 	"homepage": "http://www.mblock.cc/posts/create-extensions-for-mblock",
 	"sort":0,
@@ -9,21 +9,133 @@
   	"firmware":"1.0",
   	"extensionPort":0,
 	"blockSpecs": [
+        [
+            "w", 
+            "BT Connect RX: %n TX:%n",
+            "BTinit", 
+            "8",
+            "4",
+		    {
+                "setup":"",
+                "inc":"",
+                "def":"SoftwareSerial BTSerial({0},{1});\n",
+                "work":"",
+                "loop":""
+            }
+        ],
 
+        [
+            "w", 
+            "BT Serial Begin %d.baud",
+            "BTbaud",
+            "9600",
+		    {
+                "setup":"BTSerial.begin({0});\n",
+                "inc":"",
+                "def":"",
+                "work":"",
+                "loop":""
+            }
+        ],
+
+        [
+            "b",
+            "BT Usable ?",
+            "BTavailiable",
+		    {
+                "setup":"",
+                "inc":"",
+                "def":"",
+                "work":"BTSerial.available()",
+                "loop":""
+            }
+        ],
+
+        [
+            "w", 
+            "BT Serial Write %s",
+            "BTwrite",
+            "Hello World",
+		    {
+                "setup":"",
+                "inc":"",
+                "def":"",
+                "work":"BTSerial.write({0});\n",
+                "loop":""
+            }
+        ],
+
+        [
+            "R", 
+            "BT Serial Read",
+            "BTcommandread", 
+            "",
+		    {
+                "setup":"",
+                "inc":"",
+                "def":"",
+                "work":"BTSerial.read()",
+                "loop":""
+            }
+        ],
+
+		[
+			"w",
+			"motorRun motor %d.motor direction %d.direction speed %d.speed",
+			"motorRun",
+			"1",
+			"FORWARD",
+			"200",
+			{
+				"setup":"",
+				"inc":"#include \"AFMotor.h\"\n",
+				"def":"AF_DCMotor motor{0}({0});\n",
+				"work":"motor{0}.setSpeed({2});\n motor{0}.run({1});\n",
+				"loop":""
+			}
+		],
+
+		[
+			"w",
+			"motorStop motor %d.motor",
+			"motorStop",
+			"1",
+			{
+				"setup":"",
+				"inc":"#include \"AFMotor.h\"",
+				"def":"AF_DCMotor motor{0}({0});\n",
+				"work":"motor{0}.setSpeed(0);\n motor{0}.run(RELEASE);\n",
+				"loop":""
+			}
+		]
 
 	],
 
 	"menus": {
-
+        "baud":[9600,19200,38400,51200,115200],
+		"speed":[100,150,200,255],	
+		"motor":[1, 2, 3, 4],		
+		"direction":["FORWARD","BACKWARD"]
 		
 	},
 
 	"values":{
-
+		"FORWARD":1,
+		"BACKWARD":2
 	},
 
 
 	"translators":{
-
+		"zh_TW":{
+            "BT Connect RX: %n TX:%n":"藍芽連接腳位 RX: %n TX:%n",
+            "BT Serial Begin %d.baud":"藍芽串口鮑率 %d.baud",
+            "BT Usable ?":"藍芽可讀取",
+            "BT Serial Write %s":"藍芽串口寫入 %s",
+            "BT Serial Read":"藍芽串口讀取",
+			"motorRun motor %d.motor direction %d.direction speed %d.speed":"啟動: 馬達 %d.motor 方向 %d.direction 速度 %d.speed",
+			"motorStop motor %d.motor":"停止:馬達 %d.motor",
+			"FORWARD":"正轉",
+			"BACKWARD":"反轉"
+		}
 	}
 }
