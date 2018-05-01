@@ -1,7 +1,7 @@
 {	
 	"extensionName": "Beetle with L293D and HC-06",
 	"description": "An Extension for NTNU TAHRD L293D Bluetooth Project",
-	"version": "0.5",
+	"version": "1.0",
 	"author": "ChengYenYU(40371231h@gapps.ntnu.edu.tw)",
 	"homepage": "http://www.mblock.cc/posts/create-extensions-for-mblock",
 	"sort":0,
@@ -31,6 +31,62 @@
             "9600",
 		    {
                 "setup":"BTSerial.begin({0});\n",
+                "inc":"",
+                "def":"",
+                "work":"",
+                "loop":""
+            }
+        ],
+
+        [
+            "w", 
+            "BT AT connect",
+            "AT",
+            "",
+		    {
+                "setup":"BTSerial.println(\"AT\");\ndelay(100);\n",
+                "inc":"",
+                "def":"",
+                "work":"",
+                "loop":""
+            }
+        ],
+
+        [
+            "w", 
+            "BT Set Name %s",
+            "ATSetName",
+            "NTNUTAHRD",
+		    {
+                "setup":"BTSerial.println(\"AT+NAME=\"{0});\ndelay(100);\n",
+                "inc":"",
+                "def":"",
+                "work":"",
+                "loop":""
+            }
+        ],
+
+        [
+            "w", 
+            "BT Set Password %s",
+            "ATSetPSWD",
+            "1234",
+		    {
+                "setup":"BTSerial.println(\"AT+PSWD=\\\"{0}\\\"\");\ndelay(100);\n",
+                "inc":"",
+                "def":"",
+                "work":"",
+                "loop":""
+            }
+        ],
+
+        [
+            "w", 
+            "BT Set Baud %d.baud",
+            "ATSetBaud",
+            "9600",
+		    {
+                "setup":"BTSerial.println(\"AT+UART={0},0,0\");\ndelay(100);\n",
                 "inc":"",
                 "def":"",
                 "work":"",
