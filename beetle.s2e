@@ -13,8 +13,8 @@
             "w", 
             "BT Connect RX: %n TX:%n",
             "BTinit", 
-            "8",
-            "4",
+            "10",
+            "11",
 		    {
                 "setup":"",
                 "inc":"",
@@ -42,7 +42,6 @@
             "w", 
             "BT AT connect",
             "AT",
-            "",
 		    {
                 "setup":"BTSerial.println(\"AT\");\ndelay(100);\n",
                 "inc":"",
@@ -68,7 +67,7 @@
 
         [
             "w", 
-            "BT Set Password %s",
+            "BT Set Password %n",
             "ATSetPSWD",
             "1234",
 		    {
@@ -125,7 +124,6 @@
             "R", 
             "BT Serial Read",
             "BTcommandread", 
-            "",
 		    {
                 "setup":"",
                 "inc":"",
