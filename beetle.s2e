@@ -1,7 +1,7 @@
 {	
 	"extensionName": "Beetle with L293D and HC-06",
 	"description": "An Extension for NTNU TAHRD L293D Bluetooth Project",
-	"version": "1.0",
+	"version": "1.2",
 	"author": "ChengYenYU(40371231h@gapps.ntnu.edu.tw)",
 	"homepage": "http://www.mblock.cc/posts/create-extensions-for-mblock",
 	"sort":0,
