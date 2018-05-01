@@ -3,7 +3,7 @@
 	"description": "An Extension for NTNU TAHRD L293D Bluetooth Project",
 	"version": "1.2",
 	"author": "ChengYenYU(40371231h@gapps.ntnu.edu.tw)",
-	"homepage": "http://www.mblock.cc/posts/create-extensions-for-mblock",
+	"homepage": "https://github.com/40371231H/mblock-extention-beetle",
 	"sort":0,
 	"javascriptURL":"js/beetle.js",
   	"firmware":"1.0",
