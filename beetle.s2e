@@ -1,7 +1,7 @@
 {	
 	"extensionName": "Beetle with L293D and HC-06",
 	"description": "An Extension for NTNU TAHRD L293D Bluetooth Project",
-	"version": "1.2",
+	"version": "1.5",
 	"author": "ChengYenYU(40371231h@gapps.ntnu.edu.tw)",
 	"homepage": "https://github.com/40371231H/mblock-extention-beetle",
 	"sort":0,
@@ -11,41 +11,15 @@
 	"blockSpecs": [
         [
             "w", 
-            "BT Connect RX: %n TX:%n",
+            "BT RX: %n TX:%n , Baud %d.baud",
             "BTinit", 
             "10",
             "11",
-		    {
-                "setup":"",
-                "inc":"",
-                "def":"SoftwareSerial BTSerial({0},{1});\n",
-                "work":"",
-                "loop":""
-            }
-        ],
-
-        [
-            "w", 
-            "BT Serial Begin %d.baud",
-            "BTbaud",
             "9600",
 		    {
-                "setup":"BTSerial.begin({0});\n",
+                "setup":"BTSerial.begin({2});\n",
                 "inc":"",
-                "def":"",
-                "work":"",
-                "loop":""
-            }
-        ],
-
-        [
-            "w", 
-            "BT AT connect",
-            "AT",
-		    {
-                "setup":"BTSerial.println(\"AT\");\ndelay(100);\n",
-                "inc":"",
-                "def":"",
+                "def":"SoftwareSerial BTSerial({0},{1});\n",
                 "work":"",
                 "loop":""
             }
@@ -57,10 +31,10 @@
             "ATSetName",
             "NTNUTAHRD",
 		    {
-                "setup":"BTSerial.println(\"AT+NAME=\"{0});\ndelay(100);\n",
+                "setup":"BTSerial.println(\"AT\");\ndelay(100);\n",
                 "inc":"",
                 "def":"",
-                "work":"",
+                "work":"BTSerial.println(\"AT+NAME=\"{0});\ndelay(100);\n",
                 "loop":""
             }
         ],
@@ -71,10 +45,10 @@
             "ATSetPSWD",
             "1234",
 		    {
-                "setup":"BTSerial.println(\"AT+PSWD=\\\"{0}\\\"\");\ndelay(100);\n",
+                "setup":"BTSerial.println(\"AT\");\ndelay(100);\n",
                 "inc":"",
                 "def":"",
-                "work":"",
+                "work":"BTSerial.println(\"AT+PSWD=\\\"{0}\\\"\");\ndelay(100);\n",
                 "loop":""
             }
         ],
@@ -85,10 +59,10 @@
             "ATSetBaud",
             "9600",
 		    {
-                "setup":"BTSerial.println(\"AT+UART={0},0,0\");\ndelay(100);\n",
+                "setup":"BTSerial.println(\"AT\");\ndelay(100);\n",
                 "inc":"",
                 "def":"",
-                "work":"",
+                "work":"BTSerial.println(\"AT+UART={0},0,0\");\ndelay(100);\n",
                 "loop":""
             }
         ],
@@ -181,13 +155,11 @@
 
 	"translators":{
 		"zh_TW":{
-            "BT Connect RX: %n TX:%n":"藍芽連接腳位 RX: %n TX:%n",
-            "BT Serial Begin %d.baud":"藍芽串口鮑率 %d.baud",
-            "BT AT connect":"藍芽 AT 連接",
-            "BT Set Name %s":"藍芽名稱 %s",
-            "BT Set Password %n":"藍芽連接密碼 %n",
-            "BT Set Baud %d.baud":"藍芽設定連接鮑率 %d.baud",
-            "BT Usable ?":"藍芽可讀取",
+            "BT RX: %n TX:%n , Baud %d.baud":"藍芽 RX: %n TX:%n ，鮑率 %d.baud",
+            "BT Set Name %s":"設定藍芽名稱 %s",
+            "BT Set Password %n":"設定藍芽密碼 %n",
+            "BT Set Baud %d.baud":"設定藍芽鮑率 %d.baud",
+            "BT Usable ?":"藍芽讀取狀態",
             "BT Serial Write %s":"藍芽串口寫入 %s",
             "BT Serial Read":"藍芽串口讀取",
 			"motorRun motor %d.motor direction %d.direction speed %d.speed":"啟動: 馬達 %d.motor 方向 %d.direction 速度 %d.speed",
