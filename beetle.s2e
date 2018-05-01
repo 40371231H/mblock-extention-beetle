@@ -183,6 +183,10 @@
 		"zh_TW":{
             "BT Connect RX: %n TX:%n":"藍芽連接腳位 RX: %n TX:%n",
             "BT Serial Begin %d.baud":"藍芽串口鮑率 %d.baud",
+            "BT AT connect":"藍芽 AT 連接",
+            "BT Set Name %s":"藍芽名稱 %s",
+            "BT Set Password %n":"藍芽連接密碼 %n",
+            "BT Set Baud %d.baud":"藍芽設定連接鮑率 %d.baud",
             "BT Usable ?":"藍芽可讀取",
             "BT Serial Write %s":"藍芽串口寫入 %s",
             "BT Serial Read":"藍芽串口讀取",
