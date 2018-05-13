@@ -11,7 +11,7 @@
 	"blockSpecs": [
         [
             "w", 
-            "BT RX: %n TX:%n , Baud %d.baud",
+            "BT RX: %d.BTport TX: %d.BTport , Baud %d.baud",
             "BTinit", 
             "10",
             "11",
@@ -140,6 +140,7 @@
 	],
 
 	"menus": {
+        "BTport":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,"A0","A1","A2","A3","A4","A5"],
         "baud":[9600,19200,38400,51200,115200],
 		"speed":[100,150,200,255],	
 		"motor":[1, 2, 3, 4],		
@@ -148,6 +149,12 @@
 	},
 
 	"values":{
+        "A0":14,
+        "A1":15,
+        "A2":16,
+        "A3":17,
+        "A4":18,
+        "A5":19,        
 		"FORWARD":1,
 		"BACKWARD":2
 	},
@@ -155,7 +162,7 @@
 
 	"translators":{
 		"zh_TW":{
-            "BT RX: %n TX:%n , Baud %d.baud":"藍芽 RX: %n TX:%n ，鮑率 %d.baud",
+            "BT RX: %d.BTport TX: %d.BTport , Baud %d.baud":"藍芽 RX: %d.BTport TX: %d.BTport ，鮑率 %d.baud",
             "BT Set Name %s":"設定藍芽名稱 %s",
             "BT Set Password %n":"設定藍芽密碼 %n",
             "BT Set Baud %d.baud":"設定藍芽鮑率 %d.baud",
